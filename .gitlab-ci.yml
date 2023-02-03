@@ -83,13 +83,13 @@ build:
     paths:
       - dist/*
 
-flake8:
+lint:
   stage: test
   before_script:
     - *create_venv
     - *setup_dev_env
   script:
-    - tox -e flake8
+    - tox -e lint
   artifacts:
     paths:
       - reports/sca/flake8.out
