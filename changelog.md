@@ -10,6 +10,11 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.1.1] - 2023-01-03
+### Fixed
+- Syntax to view created tag during `tagging` stage fixed, see #1
+- Don't run `test`, `build`, `lint` and `docs` steps on tags
+
 ## [0.1.0] - 2023-01-03
 ### Added
 - Everything is new
@@ -18,4 +23,5 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 	- enabled CI/CD checks, tagging and deploy steps
 
 <!-- Links -->
+[0.1.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.1.1
 [0.1.0]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.1.0
