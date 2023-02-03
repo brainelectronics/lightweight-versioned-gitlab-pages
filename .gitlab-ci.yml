@@ -78,7 +78,7 @@ build:
     - *setup_dev_env
   script:
     - tox -e build
-    - pip install dist/*
+    - pip install dist/*.whl
   artifacts:
     paths:
       - dist/*

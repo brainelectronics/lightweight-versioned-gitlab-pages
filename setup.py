@@ -70,7 +70,7 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url="hhttps://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages",  # Optional
+    url="https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages",  # Optional
     # This should be your name or the name of the organization which owns the
     # project.
     author="brainelectronics",  # Optional
