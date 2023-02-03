@@ -12,7 +12,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 ## Released
 ## [0.1.1] - 2023-01-03
 ### Fixed
-- Syntax to view created tag during `tagging` stage fixed, see #1
+- Syntax to view and push created tag during `tagging` stage fixed, see #1
 - Don't run `test`, `build`, `lint` and `docs` steps on tags
 
 ## [0.1.0] - 2023-01-03
