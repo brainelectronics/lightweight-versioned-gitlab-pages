@@ -43,7 +43,7 @@ def parse_arguments() -> argparse.Namespace:
     return parsed_args
 
 
-def main():
+def main() -> None:
     # parse CLI arguments
     args = parse_arguments()
 
