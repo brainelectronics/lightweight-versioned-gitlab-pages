@@ -63,8 +63,8 @@ class TestGenerate(unittest.TestCase):
         :param      expectation:     The verbosity expectation value
         :type       expectation:     int
         """
-        args = ['main', verbose_option] if verbose_option else ['main']
-        with patch('sys.argv', args):
+        cmd_args = ['main', verbose_option] if verbose_option else ['main']
+        with patch('sys.argv', cmd_args):
             args = generate.parse_arguments()
 
         self.assertEqual(args.verbosity, expectation)
