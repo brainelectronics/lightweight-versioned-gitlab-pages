@@ -70,6 +70,8 @@ test:
     paths:
       - reports/coverage/coverage.xml
       - reports/test_results/nose2-junit.xml
+  except:
+    - tags
 
 build:
   stage: test
@@ -82,6 +84,8 @@ build:
   artifacts:
     paths:
       - dist/*
+  except:
+    - tags
 
 lint:
   stage: test
@@ -93,6 +97,8 @@ lint:
   artifacts:
     paths:
       - reports/sca/flake8.out
+  except:
+    - tags
 
 docs:
   stage: test
@@ -104,6 +110,8 @@ docs:
   artifacts:
     paths:
       - docs/build/html
+  except:
+    - tags
 
 tag-version:
   stage: tagging
@@ -116,11 +124,11 @@ tag-version:
     - PROJECT_URL=$(echo $CI_PROJECT_URL | sed 's/https:\/\///')
     - export CHANGELOG_TAG_FULL=${CHANGELOG_TAG}-rc+build.${CI_PIPELINE_IID}
     - git tag ${CHANGELOG_TAG_FULL} -m "$(git show | head -n 3)"
-    - git tag --list -n1 --sort=-creatordate | header -n 3
+    - git tag --list -n1 --sort=-creatordate | head -n 3
     # never use an access token if it is not protected + masked
     # ensure the the branch/tag it is running on is also protected
     - git push
-      https://gitlab-ci-token:${GITLAB_ACCESS_TOKEN}@${PROJECT_URL}.git
+      https://gitlab-ci-token:${GITLAB_ACCESS_TOKEN}@${PROJECT_URL}
       ${CHANGELOG_TAG_FULL}
   only:
     - main
@@ -139,10 +147,10 @@ deploy:
     - TWINE_PASSWORD=${TWINE_PASSWORD}
       TWINE_USERNAME=__token__
       twine upload dist/*
-  rules:
-    - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
-  # only:
-  #   - tags
+  # rules:
+  #   - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
+  only:
+    - tags
 
 pages:
   stage: deploy
@@ -156,7 +164,7 @@ pages:
     expire_in: never
     paths:
       - public
-  rules:
-    - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
-  # only:
-  #   - tags
+  # rules:
+  #   - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
+  only:
+    - tags
