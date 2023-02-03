@@ -116,7 +116,7 @@ tag-version:
     - PROJECT_URL=$(echo $CI_PROJECT_URL | sed 's/https:\/\///')
     - export CHANGELOG_TAG_FULL=${CHANGELOG_TAG}-rc+build.${CI_PIPELINE_IID}
     - git tag ${CHANGELOG_TAG_FULL} -m "$(git show | head -n 3)"
-    - git tag --list -n1 --sort=-creatordate | header -n 3
+    - git tag --list -n1 --sort=-creatordate | head -n 3
     # never use an access token if it is not protected + masked
     # ensure the the branch/tag it is running on is also protected
     - git push
