@@ -128,7 +128,7 @@ tag-version:
     # never use an access token if it is not protected + masked
     # ensure the the branch/tag it is running on is also protected
     - git push
-      https://gitlab-ci-token:${GITLAB_ACCESS_TOKEN}@${PROJECT_URL}.git
+      https://gitlab-ci-token:${GITLAB_ACCESS_TOKEN}@${PROJECT_URL}
       ${CHANGELOG_TAG_FULL}
   only:
     - main
