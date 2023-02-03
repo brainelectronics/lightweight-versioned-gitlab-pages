@@ -140,6 +140,7 @@ deploy:
   before_script:
     - *create_venv
     - *setup_dev_env
+    - pip install 'twine>=4.0.1,<5'
   script:
     - tox -e build
     # never use an access token if it is not protected + masked
