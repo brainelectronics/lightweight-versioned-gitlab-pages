@@ -70,6 +70,8 @@ test:
     paths:
       - reports/coverage/coverage.xml
       - reports/test_results/nose2-junit.xml
+  except:
+    - tags
 
 build:
   stage: test
@@ -82,6 +84,8 @@ build:
   artifacts:
     paths:
       - dist/*
+  except:
+    - tags
 
 lint:
   stage: test
@@ -93,6 +97,8 @@ lint:
   artifacts:
     paths:
       - reports/sca/flake8.out
+  except:
+    - tags
 
 docs:
   stage: test
@@ -104,6 +110,8 @@ docs:
   artifacts:
     paths:
       - docs/build/html
+  except:
+    - tags
 
 tag-version:
   stage: tagging
