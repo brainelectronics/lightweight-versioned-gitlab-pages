@@ -9,7 +9,7 @@ from sys import stdout
 import unittest
 # from unittest.mock import patch
 
-# from lightweight_versioned_gitlab_pages import generate
+from lightweight_versioned_gitlab_pages import generate
 
 
 class TestGenerate(unittest.TestCase):
@@ -36,6 +36,18 @@ class TestGenerate(unittest.TestCase):
     def tearDown(self) -> None:
         """Run after every test method"""
         pass
+
+    def test_get_artifact_url(self):
+        result = generate.get_artifact_url(
+            web_url='https://brainelectronics.gitlab.io/-/asdf',
+            job_id=1234,
+            folder='public',
+            index_file='index.html'
+        )
+        self.assertEqual(
+            result,
+            'https://brainelectronics.gitlab.io/-/asdf/-/jobs/1234/artifacts/public/index.html'   # noqa: E501
+            )
 
     '''
     @patch('sys.argv', ['main', '--debug'])
