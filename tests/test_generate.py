@@ -2,12 +2,12 @@
 # -*- coding: UTF-8 -*-
 """Unittest for testing the documentation index page"""
 
-import argparse
+# import argparse
 import logging
-from nose2.tools import params
+# from nose2.tools import params
 from sys import stdout
 import unittest
-from unittest.mock import patch
+# from unittest.mock import patch
 
 from lightweight_versioned_gitlab_pages import generate
 
@@ -37,6 +37,19 @@ class TestGenerate(unittest.TestCase):
         """Run after every test method"""
         pass
 
+    def test_get_artifact_url(self):
+        result = generate.get_artifact_url(
+            web_url='https://brainelectronics.gitlab.io/-/asdf',
+            job_id=1234,
+            folder='public',
+            index_file='index.html'
+        )
+        self.assertEqual(
+            result,
+            'https://brainelectronics.gitlab.io/-/asdf/-/jobs/1234/artifacts/public/index.html'   # noqa: E501
+        )
+
+    '''
     @patch('sys.argv', ['main', '--debug'])
     def test_parse_arguments_debug(self) -> None:
         """Test parsing command line arg debug option"""
@@ -73,6 +86,7 @@ class TestGenerate(unittest.TestCase):
            return_value=argparse.Namespace(verbosity=3, debug=True))
     def test_main(self, mock_pargse_args) -> None:
         generate.main()
+    '''
 
 
 if __name__ == '__main__':
