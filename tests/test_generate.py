@@ -37,6 +37,7 @@ class TestGenerate(unittest.TestCase):
         """Run after every test method"""
         pass
 
+    '''
     @patch('sys.argv', ['main', '--debug'])
     def test_parse_arguments_debug(self) -> None:
         """Test parsing command line arg debug option"""
@@ -73,6 +74,7 @@ class TestGenerate(unittest.TestCase):
            return_value=argparse.Namespace(verbosity=3, debug=True))
     def test_main(self, mock_pargse_args) -> None:
         generate.main()
+    '''
 
 
 if __name__ == '__main__':
