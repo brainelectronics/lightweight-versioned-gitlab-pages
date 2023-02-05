@@ -47,7 +47,7 @@ class TestGenerate(unittest.TestCase):
         self.assertEqual(
             result,
             'https://brainelectronics.gitlab.io/-/asdf/-/jobs/1234/artifacts/public/index.html'   # noqa: E501
-            )
+        )
 
     '''
     @patch('sys.argv', ['main', '--debug'])
