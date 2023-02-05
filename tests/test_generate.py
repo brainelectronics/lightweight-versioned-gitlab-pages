@@ -2,14 +2,14 @@
 # -*- coding: UTF-8 -*-
 """Unittest for testing the documentation index page"""
 
-import argparse
+# import argparse
 import logging
-from nose2.tools import params
+# from nose2.tools import params
 from sys import stdout
 import unittest
-from unittest.mock import patch
+# from unittest.mock import patch
 
-from lightweight_versioned_gitlab_pages import generate
+# from lightweight_versioned_gitlab_pages import generate
 
 
 class TestGenerate(unittest.TestCase):
