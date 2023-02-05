@@ -68,7 +68,7 @@ suppress_warnings = [
 # when doing a linkcheck build.
 linkcheck_ignore = [
     # tag 0.1.0 did not exist during docs introduction
-    'https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.1.0',
+    'https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/.*',
 ]
 
 templates_path = ['_templates']
