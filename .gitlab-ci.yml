@@ -172,10 +172,12 @@ pages:
   stage: deploy
   before_script:
     - *create_venv
-    - *setup_dev_env
+    - pip install .
   script:
-    - tox -e docs
-    - mv docs/build/html/ public/
+    - generate-versioned-pages
+      --private-token ${GITLAB_API_TOKEN}
+      --project-id ${CI_PROJECT_ID}
+      --job-name generate-docs
   artifacts:
     expire_in: never
     paths:
