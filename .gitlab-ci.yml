@@ -60,7 +60,7 @@ test:
         'python:3.10',
         'python:3.11'
       ]
-  coverage: '/TOTAL.*\s+(\d+\.\d+%)/'
+  coverage: '/TOTAL.*\s+(\d+%)$/'
   artifacts:
     reports:
       coverage_report:
