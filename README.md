@@ -48,7 +48,8 @@ will be displayed on the GitLab Pages web page, see also chapter Limitations.
 
 The script will use an API token to make all requests through the
 [`python-gitlab`](https://python-gitlab.readthedocs.io/en/stable/) package.
-This token must be specified via the `--private-token` argument.
+This token must be specified via the `--private-token` argument. The token can
+be generated via `Settings -> Access Tokens` and requires `api` scope.
 
 In addition, the unique project ID must be specified with `--project-id`.
 This ID can be found at the top of each repo. For this repository it is
@@ -99,7 +100,10 @@ pages:
   before_script:
     - pip install lightweight-versioned-gitlab-pages
   script:
-    - generate-versioned-pages --private_token ${PRIVATE_API_TOKEN} --project-id ${CI_PROJECT_ID} --job-name pages
+    - generate-versioned-pages
+      --private_token ${GITLAB_API_TOKEN}
+      --project-id ${CI_PROJECT_ID}
+      --job-name generate-docs
   artifacts:
     expire_in: never
     paths:
