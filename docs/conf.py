@@ -14,10 +14,10 @@ sys.path.insert(0, os.path.abspath('../'))
 here = Path(__file__).parent.resolve()
 
 try:
-    from lightweight_versioned_gitlab_pages import generate
+    import lightweight_versioned_gitlab_pages
 except ImportError:
     raise SystemExit(
-        "Generator of lightweight_versioned_gitlab_pages has to be importable"
+        "lightweight_versioned_gitlab_pages module has to be importable"
     )
 
 # load elements of version.py
