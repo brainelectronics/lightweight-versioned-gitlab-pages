@@ -135,6 +135,21 @@ tag-version:
   except:
     - tags
 
+generate-docs:
+  stage: tagging
+  before_script:
+    - *create_venv
+    - *setup_dev_env
+  script:
+    - tox -e docs
+    - mv docs/build/html/ public/
+  artifacts:
+    expire_in: never
+    paths:
+      - public
+  only:
+    - tags
+
 deploy:
   stage: deploy
   before_script:
