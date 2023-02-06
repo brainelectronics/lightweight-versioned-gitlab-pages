@@ -10,6 +10,15 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.2.1] - 2023-01-06
+### Fixed
+- Cleanup of root README
+- Add missing usage and background details to root README
+- Use `lightweight-versioned-gitlab-pages` in its CI chain
+- Fix RegEx to extract coverage result in CI chain
+- Add missing `.editorconfig` file for future contributors
+- Add `.readthedocs.yaml` file to generate documentation also on RTD by GitHub mirror
+
 ## [0.2.0] - 2023-01-05
 ### Added
 - Full functionality added to package
@@ -32,6 +41,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 	- enabled CI/CD checks, tagging and deploy steps
 
 <!-- Links -->
+[0.2.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.1
 [0.2.0]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.0
 [0.1.2]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.1.2
 [0.1.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.1.1
