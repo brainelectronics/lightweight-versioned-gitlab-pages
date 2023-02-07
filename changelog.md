@@ -10,6 +10,10 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.2.2] - 2023-01-07
+### Fixed
+- Use correct module import in `docs/conf.py` file, see #3
+
 ## [0.2.1] - 2023-01-06
 ### Fixed
 - Cleanup of root README
@@ -41,6 +45,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 	- enabled CI/CD checks, tagging and deploy steps
 
 <!-- Links -->
+[0.2.2]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.2
 [0.2.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.1
 [0.2.0]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.0
 [0.1.2]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.1.2

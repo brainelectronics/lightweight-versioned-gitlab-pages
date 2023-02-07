@@ -10,14 +10,14 @@ from pathlib import Path
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('../src/'))
 here = Path(__file__).parent.resolve()
 
 try:
-    from lightweight_versioned_gitlab_pages import generate
+    import lightweight_versioned_gitlab_pages
 except ImportError:
     raise SystemExit(
-        "Generator of lightweight_versioned_gitlab_pages has to be importable"
+        "lightweight_versioned_gitlab_pages module has to be importable"
     )
 
 # load elements of version.py

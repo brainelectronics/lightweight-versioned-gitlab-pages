@@ -1,4 +1,4 @@
-# Lightweight versioned GitLab Pages
+# Lightweight Versioned GitLab Pages
 
 [![Downloads](https://pepy.tech/badge/lightweight-versioned-gitlab-pages)](https://pepy.tech/project/lightweight-versioned-gitlab-pages)
 [![pipeline status](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/badges/main/pipeline.svg)](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/commits/main)
