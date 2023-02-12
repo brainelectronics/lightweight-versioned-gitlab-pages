@@ -10,6 +10,18 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.3.0] - 2023-01-12
+### Added
+- Enable custom template file usage with `--template-file` argument, see #5
+- Lint YAML files based on `.yamllint` config file in `lint` CI step
+- Advances usage section in root README
+
+### Fixed
+- Increase coverage above 50%, see #4
+- URL of RTD status badge points to correct endpoint
+- Invalid YAML syntax of used files corrected
+- Run codecov steps not on tags
+
 ## [0.2.3] - 2023-01-12
 ### Fixed
 - Use correct CLI arg `--private-token` in root README, see #7
@@ -51,6 +63,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 	- enabled CI/CD checks, tagging and deploy steps
 
 <!-- Links -->
+[0.3.0]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.3.0
 [0.2.3]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.3
 [0.2.2]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.2
 [0.2.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.1
