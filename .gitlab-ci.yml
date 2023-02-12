@@ -1,3 +1,5 @@
+---
+
 stages:
   - test
   - tagging
@@ -83,6 +85,8 @@ codecov:
     - curl -Os https://uploader.codecov.io/latest/alpine/codecov
     - chmod +x codecov
     - ./codecov -t ${CODECOV_TOKEN} -f reports/coverage/coverage.xml -R ./ -v
+  except:
+    - tags
 
 build:
   stage: test
@@ -103,8 +107,10 @@ lint:
   before_script:
     - *create_venv
     - *setup_dev_env
+    - pip install 'yamllint>=1.29,<2'
   script:
     - tox -e lint
+    - yamllint .
   artifacts:
     paths:
       - reports/sca/flake8.out
@@ -174,8 +180,6 @@ deploy:
     - TWINE_PASSWORD=${TWINE_PASSWORD}
       TWINE_USERNAME=__token__
       twine upload dist/*
-  # rules:
-  #   - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
   only:
     - tags
 
@@ -186,14 +190,11 @@ pages:
     - pip install .
   script:
     - generate-versioned-pages
-      --private-token ${GITLAB_API_TOKEN}
       --project-id ${CI_PROJECT_ID}
       --job-name generate-docs
   artifacts:
     expire_in: never
     paths:
       - public
-  # rules:
-  #   - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
   only:
     - tags
