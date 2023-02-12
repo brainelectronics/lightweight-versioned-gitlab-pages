@@ -59,9 +59,11 @@ def parse_arguments() -> argparse.Namespace:
                         help='Project Access Token with API scope')
     parser.add_argument('--project-id',
                         default=None,
+                        required=True,
                         help='Project ID')
     parser.add_argument('--job-name',
                         default=None,
+                        required=True,
                         help='Job name which generated the public folder')
     parser.add_argument('--output-dir',
                         default=Path('public').expanduser().resolve(),
