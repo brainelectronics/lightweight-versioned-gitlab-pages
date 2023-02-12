@@ -73,6 +73,14 @@ test:
   except:
     - tags
 
+codecov:
+  stage: test
+  needs: ["test"]
+  script:
+    - curl -Os https://uploader.codecov.io/latest/alpine/codecov
+    - chmod +x codecov
+    - ./codecov -f reports/coverage/coverage.xml -v
+
 build:
   stage: test
   before_script:
