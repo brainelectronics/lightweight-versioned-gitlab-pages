@@ -2,7 +2,7 @@
 
 [![Downloads](https://pepy.tech/badge/lightweight-versioned-gitlab-pages)](https://pepy.tech/project/lightweight-versioned-gitlab-pages)
 [![pipeline status](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/badges/main/pipeline.svg)](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/commits/main)
-[![Documentation Status](https://readthedocs.org/projects/lightweight-versioned-gitlab-pages/badge/?version=latest)](https://lightweight-gitlab-pages.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/lightweight-gitlab-pages/badge/?version=latest)](https://lightweight-gitlab-pages.readthedocs.io/en/latest/?badge=latest)
 [![coverage report](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/badges/main/coverage.svg)](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/commits/main)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/lightweight-versioned-gitlab-pages)
 [![License: MIT](https://img.shields.io/gitlab/license/brainelectronics/lightweight-versioned-gitlab-pages?color=green)](https://opensource.org/licenses/MIT)
