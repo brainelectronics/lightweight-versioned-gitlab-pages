@@ -75,10 +75,12 @@ test:
 
 codecov:
   stage: test
+  image: alpine:3
   needs: ["test"]
   script:
     - curl -Os https://uploader.codecov.io/latest/alpine/codecov
     - chmod +x codecov
+    - ls -la
     - ./codecov -f reports/coverage/coverage.xml -v
 
 build:
