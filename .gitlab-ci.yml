@@ -73,6 +73,17 @@ test:
   except:
     - tags
 
+codecov:
+  stage: test
+  image: alpine:3
+  needs: ["test"]
+  before_script:
+    - apk --no-cache add curl git
+  script:
+    - curl -Os https://uploader.codecov.io/latest/alpine/codecov
+    - chmod +x codecov
+    - ./codecov -t ${CODECOV_TOKEN} -f reports/coverage/coverage.xml -R ./ -v
+
 build:
   stage: test
   before_script:

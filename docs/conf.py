@@ -69,7 +69,6 @@ suppress_warnings = [
 linkcheck_ignore = [
     # tag 0.1.0 did not exist during docs introduction
     'https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/.*',
-    'https://lightweight-versioned-gitlab-pages.readthedocs.io/.*',
 ]
 
 templates_path = ['_templates']

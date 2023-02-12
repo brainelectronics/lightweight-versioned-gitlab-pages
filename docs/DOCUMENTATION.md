@@ -45,4 +45,4 @@ The created documentation can be found at [`docs/build/html`](docs/build/html).
 
 <!-- Links -->
 [ref-gl-pages]: https://brainelectronics.gitlab.io/lightweight-versioned-gitlab-pages
-[ref-rtd]: https://lightweight-versioned-gitlab-pages.readthedocs.io/en/latest/
+[ref-rtd]: https://lightweight-gitlab-pages.readthedocs.io/en/latest

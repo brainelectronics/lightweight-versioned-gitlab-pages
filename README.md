@@ -2,7 +2,7 @@
 
 [![Downloads](https://pepy.tech/badge/lightweight-versioned-gitlab-pages)](https://pepy.tech/project/lightweight-versioned-gitlab-pages)
 [![pipeline status](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/badges/main/pipeline.svg)](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/commits/main)
-[![Documentation Status](https://readthedocs.org/projects/lightweight-versioned-gitlab-pages/badge/?version=latest)](https://lightweight-versioned-gitlab-pages.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/lightweight-versioned-gitlab-pages/badge/?version=latest)](https://lightweight-gitlab-pages.readthedocs.io/en/latest/?badge=latest)
 [![coverage report](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/badges/main/coverage.svg)](https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/commits/main)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/lightweight-versioned-gitlab-pages)
 [![License: MIT](https://img.shields.io/gitlab/license/brainelectronics/lightweight-versioned-gitlab-pages?color=green)](https://opensource.org/licenses/MIT)
@@ -26,7 +26,7 @@ pip install lightweight-versioned-gitlab-pages
 📚 The latest documentation is available at
 
 - [Lightweight versioned GitLab Pages GitLab Pages](https://brainelectronics.gitlab.io/lightweight-versioned-gitlab-pages)
-- [Lightweight versioned GitLab Pages ReadTheDocs](https://lightweight-versioned-gitlab-pages.readthedocs.io/en/latest/)
+- [Lightweight versioned GitLab Pages ReadTheDocs](https://lightweight-gitlab-pages.readthedocs.io/en/latest/)
 
 ## Reasoning
 
@@ -85,7 +85,7 @@ with all previously built tags and the URL to the public pages archive files.
 
 ```bash
 generate-versioned-pages \
---private_token asdf-carlTheLamaIsHere \
+--private-token asdf-carlTheLamaIsHere \
 --project-id 43170198 \
 --job-name pages
 ```
@@ -101,7 +101,7 @@ pages:
     - pip install lightweight-versioned-gitlab-pages
   script:
     - generate-versioned-pages
-      --private_token ${GITLAB_API_TOKEN}
+      --private-token ${GITLAB_API_TOKEN}
       --project-id ${CI_PROJECT_ID}
       --job-name generate-docs
   artifacts:
