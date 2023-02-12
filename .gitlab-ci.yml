@@ -105,8 +105,10 @@ lint:
   before_script:
     - *create_venv
     - *setup_dev_env
+    - pip install 'yamllint>=1.29,<2'
   script:
     - tox -e lint
+    - yamllint .
   artifacts:
     paths:
       - reports/sca/flake8.out
