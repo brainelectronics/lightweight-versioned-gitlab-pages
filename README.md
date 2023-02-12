@@ -85,7 +85,7 @@ with all previously built tags and the URL to the public pages archive files.
 
 ```bash
 generate-versioned-pages \
---private_token asdf-carlTheLamaIsHere \
+--private-token asdf-carlTheLamaIsHere \
 --project-id 43170198 \
 --job-name pages
 ```
@@ -101,7 +101,7 @@ pages:
     - pip install lightweight-versioned-gitlab-pages
   script:
     - generate-versioned-pages
-      --private_token ${GITLAB_API_TOKEN}
+      --private-token ${GITLAB_API_TOKEN}
       --project-id ${CI_PROJECT_ID}
       --job-name generate-docs
   artifacts:
