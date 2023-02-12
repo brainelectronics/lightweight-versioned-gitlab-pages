@@ -180,8 +180,6 @@ deploy:
     - TWINE_PASSWORD=${TWINE_PASSWORD}
       TWINE_USERNAME=__token__
       twine upload dist/*
-  # rules:
-  #   - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
   only:
     - tags
 
@@ -192,14 +190,11 @@ pages:
     - pip install .
   script:
     - generate-versioned-pages
-      --private-token ${GITLAB_API_TOKEN}
       --project-id ${CI_PROJECT_ID}
       --job-name generate-docs
   artifacts:
     expire_in: never
     paths:
       - public
-  # rules:
-  #   - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH) && $CI_COMMIT_TAG
   only:
     - tags
