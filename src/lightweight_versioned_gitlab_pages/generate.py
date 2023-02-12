@@ -72,10 +72,32 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument('--create-version-info-file',
                         action='store_true',
                         help='Create version info JSON file in output folder')
+    parser.add_argument('--template-file',
+                        type=lambda x: parser_valid_file(parser=parser, arg=x),
+                        help='Path to custom index template file')
 
     parsed_args = parser.parse_args()
 
     return parsed_args
+
+
+def parser_valid_file(parser: argparse.ArgumentParser, arg: str) -> Path:
+    """
+    Determine whether file exists.
+
+    :param      parser:                 The parser
+    :type       parser:                 parser object
+    :param      arg:                    The file to check
+    :type       arg:                    str
+    :raise      argparse.ArgumentError: Argument is not a file
+
+    :returns:   Input file path, parser error is thrown otherwise.
+    :rtype:     Path
+    """
+    if not Path(arg).is_file():
+        parser.error("The file {} does not exist!".format(arg))
+    else:
+        return Path(arg).resolve()
 
 
 @dataclass
@@ -235,7 +257,7 @@ def save_version_info_file(tag_list: List[TagInfo], file_path: Path) -> None:
     version_info = []
 
     for tag in tag_list:
-        info = tag.tag
+        info = dict(tag.tag.attributes)
         info['pages_url'] = tag.pages_url
         info['job_id'] = tag.job_id
         info['commit_info'] = tag.commit.attributes
@@ -295,7 +317,9 @@ def create_output_directory(path: Path) -> None:
     Path(path).mkdir(parents=True, exist_ok=True)
 
 
-def create_html_files(tag_list: List[TagInfo], path: Path) -> None:
+def create_html_files(tag_list: List[TagInfo],
+                      path: Path,
+                      template: Optional[Path] = None) -> None:
     """
     Create all HTML files.
 
@@ -303,8 +327,18 @@ def create_html_files(tag_list: List[TagInfo], path: Path) -> None:
     :type       tag_list:  List[TagInfo]
     :param      path:      The path to the output folder
     :type       path:      Path
+    :param      template:  Path to custom template file
+    :type       template:  Optional[Path]
     """
-    index_template = get_template_file(file_name='index.html')
+    file_name = 'index.html'
+    template_folder = None
+
+    if template is not None:
+        file_name = template.name
+        template_folder = template.parent
+
+    index_template = get_template_file(file_name=file_name,
+                                       template_folder=template_folder)
 
     tag_base_url = sub(
         pattern=r'\/-\/commit\/.*',
@@ -315,7 +349,7 @@ def create_html_files(tag_list: List[TagInfo], path: Path) -> None:
         items=tag_list,
         tag_base_url=tag_base_url
     )
-    save_file(content=index_content, path=path / 'index.html')
+    save_file(content=index_content, path=path / file_name)
 
 
 def main() -> None:
@@ -347,6 +381,7 @@ def main() -> None:
     output_path = args.output_dir
     pages_base_url = args.pages_base_url
     create_version_info_file = args.create_version_info_file
+    template_file = args.template_file
 
     project = get_project(
         url=url,
@@ -380,7 +415,11 @@ def main() -> None:
             file_path=output_path / 'versions.json'
         )
 
-    create_html_files(tag_list=tag_list, path=output_path)
+    create_html_files(
+        tag_list=tag_list,
+        path=output_path,
+        template=template_file
+    )
 
 
 if __name__ == '__main__':
