@@ -67,6 +67,7 @@ def parse_arguments() -> argparse.Namespace:
                         help='Job name which generated the public folder')
     parser.add_argument('--output-dir',
                         default=Path('public').expanduser().resolve(),
+                        type=Path,
                         help='Output directory of versioned pages index file')
     parser.add_argument('--pages-base-url',
                         default=None,
