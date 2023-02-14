@@ -10,6 +10,10 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.3.2] - 2023-01-14
+### Fixed
+- Skip tag if no pipeline was running for the commit the tag was created for
+
 ## [0.3.1] - 2023-01-14
 ### Fixed
 - Value of argument `--output-dir` is used as `Path` instead of `str`
@@ -67,6 +71,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 	- enabled CI/CD checks, tagging and deploy steps
 
 <!-- Links -->
+[0.3.2]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.3.2
 [0.3.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.3.1
 [0.3.0]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.3.0
 [0.2.3]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.3
