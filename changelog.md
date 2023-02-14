@@ -10,6 +10,10 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 -->
 
 ## Released
+## [0.3.1] - 2023-01-14
+### Fixed
+- Value of argument `--output-dir` is used as `Path` instead of `str`
+
 ## [0.3.0] - 2023-01-12
 ### Added
 - Enable custom template file usage with `--template-file` argument, see #5
@@ -63,6 +67,7 @@ r"^\#\# \[\d{1,}[.]\d{1,}[.]\d{1,}\] \- \d{4}\-\d{2}-\d{2}$"
 	- enabled CI/CD checks, tagging and deploy steps
 
 <!-- Links -->
+[0.3.1]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.3.1
 [0.3.0]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.3.0
 [0.2.3]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.3
 [0.2.2]: https://gitlab.com/brainelectronics/lightweight-versioned-gitlab-pages/-/tags/0.2.2
