@@ -45,7 +45,7 @@ class TestGenerate(unittest.TestCase):
         pass
 
     @patch('sys.argv', ['main', '--project-id', '1234', '--job-name', 'carl'])
-    def test_parse_arguments(self):
+    def test_parse_arguments_default(self):
         expectation = {
             'debug': False,
             'verbosity': 0,
@@ -58,6 +58,35 @@ class TestGenerate(unittest.TestCase):
             'pages_base_url': None,
             'create_version_info_file': False,
             'template_file': None,
+        }
+        args = generate.parse_arguments()
+        self.test_logger.debug(args)
+        args_as_dict = vars(args)
+
+        for k, v in expectation.items():
+            self.assertEqual(args_as_dict[k], v)
+
+    @patch('sys.argv',
+           [
+                'main', '--project-id', '1234', '--job-name', 'carl',
+                '--url', 'http://git.my-url.com',
+                '--private-token', 'qwertz1234',
+                '--output-dir', 'one/dir',
+                '--template-file', 'tests/data/index.txt',
+                '--debug', '-vvvv'
+            ])
+    def test_parse_arguments_default(self):
+        expectation = {
+            'debug': True,
+            'verbosity': 4,
+            'url': 'http://git.my-url.com',
+            'private_token': 'qwertz1234',
+            'project_id': '1234',
+            'job_name': 'carl',
+            'output_dir': Path('one/dir'),
+            'pages_base_url': None,
+            'create_version_info_file': False,
+            'template_file': Path(__file__).parent / 'data' / 'index.txt',
         }
         args = generate.parse_arguments()
         self.test_logger.debug(args)
