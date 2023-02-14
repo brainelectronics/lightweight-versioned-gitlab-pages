@@ -161,6 +161,10 @@ def get_project_tags(project: Project,
             ),
         )
 
+        # skip the tag is there was no last pipeline
+        if tag_info.commit.last_pipeline is None:
+            continue
+
         get_pipeline_job(
             project=project,
             tag_info=tag_info,
