@@ -66,16 +66,17 @@ class TestGenerate(unittest.TestCase):
         for k, v in expectation.items():
             self.assertEqual(args_as_dict[k], v)
 
-    @patch('sys.argv',
-           [
-                'main', '--project-id', '1234', '--job-name', 'carl',
-                '--url', 'http://git.my-url.com',
-                '--private-token', 'qwertz1234',
-                '--output-dir', 'one/dir',
-                '--template-file', 'tests/data/index.txt',
-                '--debug', '-vvvv'
-            ])
-    def test_parse_arguments_default(self):
+    @patch(
+        'sys.argv', [
+            'main', '--project-id', '1234', '--job-name', 'carl',
+            '--url', 'http://git.my-url.com',
+            '--private-token', 'qwertz1234',
+            '--output-dir', 'one/dir',
+            '--template-file', 'tests/data/index.txt',
+            '--debug', '-vvvv'
+        ]
+    )
+    def test_parse_arguments_specific(self):
         expectation = {
             'debug': True,
             'verbosity': 4,
